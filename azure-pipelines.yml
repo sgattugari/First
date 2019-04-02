@@ -13,6 +13,8 @@ variables:
   imageName: '$(projectName)'
   # define 4 more variables: tenantId, registryName, registryLogin and registryPassword in the build pipeline in UI
 steps:
+- bash: which mvn
+- bash: ll
 - bash: mvn clean package
   displayName: Maven install
 - bash: docker build -t $(registryServerName)/$(imageName):$(build.buildId) .  # add options to this command to meet your needs
